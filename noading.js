@@ -3,11 +3,9 @@ const readline = require('readline');
 //Base ==========================================================//
 
 function Base(config){
+
 	this.val = (config.val === undefined) ? 0 : config.val;
 	this.max = (config.max === undefined) ? 100 : config.max;
-	console.log("Val: " + this.val);
-	console.log("Max: " + this.max);
-
 
 	this.interval = Math.max((config.interval === undefined) ? 0 : config.interval, 250);
 	if(config.autoUpdate)
@@ -76,7 +74,7 @@ function Bar(config){
 		this.clearLine();
 		
 		var str = '';
-		var pct = this.getProgress();
+		var pct = this.getProgress(true);
 		var litChars = Math.floor(this.len * pct);
 		for (var i = 0; i < this.len; i++) {
 			if(i<litChars)
@@ -99,6 +97,6 @@ Bar.prototype = Object.create(Base.prototype);
 
 
 //Exports ====================//
-exports.base 	= new Base();
-exports.bar 	= new Bar();
+exports.base 	= Base;
+exports.bar 	= Bar;
 //============================//

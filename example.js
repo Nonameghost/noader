@@ -1,6 +1,7 @@
-const noading = require('noading');
+const noading = require('./noading.js');
+const chalk = require('chalk');
 
-var n = new noading.bar({
+var config = {
 	val			: 0,
 	max			: 10,
 	litChar 	: '▓▒',
@@ -10,7 +11,9 @@ var n = new noading.bar({
 	unlitColor 	: chalk.blue,
 	textColor	: chalk.blue,
 	interval    : 500
-});
+};
+
+var n = new noading.bar(config);
 n.start();
 
 setInterval(function(){
