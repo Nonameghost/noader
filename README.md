@@ -5,7 +5,7 @@ Loading visualization for node.js CLI
 
 A simple loading visualizer. Currently supports bar visualization, with some other variants planned.
 
-##Usage
+## Usage
 
 Example from **example.js:**
 
@@ -38,11 +38,11 @@ setInterval(function(){
 ```
 Create a noading bar with **noading.bar()** and a config object, then **bar.start()** to trigger the automatic update. Updating **val** will change the current progress of the bar. The bar can also be manually updated by calling **bar.update()** instead of start.
 
-##Types/Configs
+## Types/Configs
 
 Below are the configs for the current loading bar types:
 
-###Global
+### Global
 
 Shared between all noading types.
 
@@ -53,7 +53,7 @@ Shared between all noading types.
 | max  | The total value being loaded. |
 | interval | The rate at which the visual updates when .start() is used.|
 
-###Bar
+### Bar
 
 A loading bar.
 
@@ -66,13 +66,13 @@ A loading bar.
 | unlitColor | The color of the unlit chars. (ex. chalk.blue)|
 | textColor | the color of the text at the end of the bar (ex. chalk.blue)|
 
-##TODO
+## TODO
 
 * Remove chalk requirement outside the module. Chalk can parse keywords, hex codes, and RGB, but it was quicker to use the function.
 * Add animation loader type. Think spinners or dots.
 * Improve module api. I'm not sure what best practices are for this kind of stuff, this is my first public node package.
 
-##License
+## License
 
 ```
 MIT License
