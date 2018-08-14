@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const readline = require('readline');
-//Base ==========================================================//
 
+//Base ==========================================================//
 function Base(config){
 
 	this.val = (config.val === undefined) ? 0 : config.val;
@@ -57,8 +57,7 @@ Base.prototype.getProgress = function(clamped)
 	}
 }
 
-//BAR ============================================================//
-
+//Bar ============================================================//
 function Bar(config){
 	Base.call(this,config);
 
@@ -95,8 +94,37 @@ function Bar(config){
 
 Bar.prototype = Object.create(Base.prototype);
 
+//Animation ============================================================//
+function Animation(config){
+	Base.call(this,config);
+
+	this.sequence	= (config.sequence === undefined) ? ['╔','╗','╝','╚']  : config.sequence;
+	this.color		= (config.color === undefined) ? chalk.blue : config.color;
+	this.textColor	= (config.textColor === undefined) ? this.color : config.textColor;
+
+	this.frame 		= 0;
+
+	this.update = function()
+	{
+		this.clearLine();
+
+		var str = this.color(" " + this.sequence[this.frame]);
+		this.frame++;
+		if (this.frame >= this.sequence.length)
+		{
+			this.frame = 0;
+		}
+
+		str += this.textColor(' | ' + (Math.floor(this.getProgress(true)*100)) + "% ");
+
+		this.writeLine(str);
+	}.bind(this);
+}
+
+Animation.prototype = Object.create(Base.prototype);
 
 //Exports ====================//
-exports.base 	= Base;
-exports.bar 	= Bar;
+exports.base 		= Base;
+exports.bar 		= Bar;
+exports.animation 	= Animation;
 //============================//

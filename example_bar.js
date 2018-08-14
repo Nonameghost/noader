@@ -19,3 +19,4 @@ n.start();
 setInterval(function(){
 	n.val += 1;
 }, 1000);
+

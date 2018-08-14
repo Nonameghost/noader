@@ -3,11 +3,13 @@ Loading visualization for node.js CLI
 
 ![gif](https://media.giphy.com/media/9uImrwBV72XgCguyNb/giphy.gif "gif")
 
+![gif](https://media.giphy.com/media/9uImrtV4TH3jwpCsjO/giphy.gif "gif")
+
 A simple loading visualizer. Currently supports bar visualization, with some other variants planned.
 
 ## Usage
 
-Example from **example.js:**
+Example from **example_bar.js:**
 
 ```js
 const noading = require('./noading.js');
