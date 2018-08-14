@@ -6,7 +6,7 @@ var config = {
 	max			: 10,
 	litChar 	: '▓▒',
 	unlitChar 	: '░░',
-	len 		: 10,
+	len 		: 20,
 	litColor	: chalk.blue,
 	unlitColor 	: chalk.blue,
 	textColor	: chalk.blue,
