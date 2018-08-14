@@ -1,0 +1,16 @@
+{
+  "name": "noading",
+  "version": "0.0.2",
+  "description": "Loading bar utilities for node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Neil Sveri",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "npm": "^6.3.0"
+  }
+}
