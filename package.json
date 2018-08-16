@@ -1,6 +1,6 @@
 {
   "name": "noading",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Loading bar utilities for node.",
   "main": "index.js",
   "scripts": {
@@ -11,5 +11,21 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "npm": "^6.3.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nonameghost/noading.git"
+  },
+  "keywords": [
+    "loading",
+    "cli",
+    "chalk",
+    "animation",
+    "bar"
+  ],
+  "bugs": {
+    "url": "https://github.com/Nonameghost/noading/issues"
+  },
+  "homepage": "https://github.com/Nonameghost/noading#readme"
 }
