@@ -1,5 +1,4 @@
 const noading = require('./noading.js');
-const chalk = require('chalk');
 
 var config = {
 	val:0,

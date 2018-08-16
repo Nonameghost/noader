@@ -57,6 +57,18 @@ Base.prototype.getProgress = function(clamped)
 	}
 }
 
+Base.prototype.chalkColor = function(color, msg)
+{
+	if(color.charAt(0) == '#')
+	{
+		return chalk.hex(color)(msg);
+	}
+	else
+	{
+		return chalk.keyword(color)(msg);
+	}
+}
+
 //Bar ============================================================//
 function Bar(config){
 	Base.call(this,config);
@@ -64,7 +76,7 @@ function Bar(config){
 	this.len 		= Math.max((config.len === undefined) ? 10 : config.len, 1);
 	this.litChar 	= (config.litChar === undefined) ? '▓▒' : config.litChar;
 	this.unlitChar 	= (config.unlitChar === undefined) ? '░░' : config.unlitChar;
-	this.litColor	= (config.litColor === undefined) ? chalk.blue : config.litColor;
+	this.litColor	= (config.litColor === undefined) ? 'blue' : config.litColor;
 	this.unlitColor	= (config.unlitColor === undefined) ? this.litColor : config.unlitColor;
 	this.textColor	= (config.textColor === undefined) ? this.litColor : config.textColor;
 
@@ -78,15 +90,15 @@ function Bar(config){
 		for (var i = 0; i < this.len; i++) {
 			if(i<litChars)
 			{
-				str += this.litColor(this.litChar);
+				str += this.chalkColor(this.litColor,this.litChar);
 			}
 			else
 			{
-				str += this.unlitColor(this.unlitChar);
+				str += this.chalkColor(this.unlitColor,this.unlitChar);
 			}
 		}
 
-		str += this.textColor(' | ' + (Math.floor(pct*100)) + "% ");
+		str += this.chalkColor(this.textColor, ' | ' + (Math.floor(pct*100)) + "% ");
 
 		this.writeLine(str);
 	}.bind(this);
@@ -99,7 +111,7 @@ function Animation(config){
 	Base.call(this,config);
 
 	this.sequence	= (config.sequence === undefined) ? ['╔','╗','╝','╚']  : config.sequence;
-	this.color		= (config.color === undefined) ? chalk.blue : config.color;
+	this.color		= (config.color === undefined) ? 'blue' : config.color;
 	this.textColor	= (config.textColor === undefined) ? this.color : config.textColor;
 
 	this.frame 		= 0;
@@ -108,14 +120,14 @@ function Animation(config){
 	{
 		this.clearLine();
 
-		var str = this.color(" " + this.sequence[this.frame]);
+		var str = this.chalkColor(this.textColor," " + this.sequence[this.frame]);
 		this.frame++;
 		if (this.frame >= this.sequence.length)
 		{
 			this.frame = 0;
 		}
 
-		str += this.textColor(' | ' + (Math.floor(this.getProgress(true)*100)) + "% ");
+		str += this.chalkColor(this.textColor, ' | ' + (Math.floor(this.getProgress(true)*100)) + "% ");
 
 		this.writeLine(str);
 	}.bind(this);

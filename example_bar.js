@@ -1,5 +1,4 @@
 const noading = require('./noading.js');
-const chalk = require('chalk');
 
 var config = {
 	val			: 0,
@@ -7,9 +6,9 @@ var config = {
 	litChar 	: '▓▒',
 	unlitChar 	: '░░',
 	len 		: 20,
-	litColor	: chalk.blue,
-	unlitColor 	: chalk.blue,
-	textColor	: chalk.blue,
+	litColor	: 'red',
+	unlitColor 	: 'blue',
+	textColor	: 'blue',
 	interval    : 500
 };
 

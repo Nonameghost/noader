@@ -5,7 +5,7 @@ Loading visualization for node.js CLI
 
 ![gif](https://media.giphy.com/media/9uImrtV4TH3jwpCsjO/giphy.gif "gif")
 
-A simple loading visualizer. Currently supports bar visualization, with some other variants planned.
+A simple loading visualizer.
 
 ## Usage
 
@@ -13,7 +13,6 @@ Example from **example_bar.js:**
 
 ```js
 const noading = require('./noading.js');
-const chalk = require('chalk');
 
 var config = {
 	val			: 0,
@@ -21,9 +20,9 @@ var config = {
 	litChar 	: '▓▒',
 	unlitChar 	: '░░',
 	len 		: 20,
-	litColor	: chalk.blue,
-	unlitColor 	: chalk.blue,
-	textColor	: chalk.blue,
+	litColor	: 'red',
+	unlitColor 	: 'blue',
+	textColor	: 'blue',
 	interval    : 500
 };
 
@@ -39,6 +38,10 @@ setInterval(function(){
 // ▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒▓▒ | 100%
 ```
 Create a noading bar with **noading.bar()** and a config object, then **bar.start()** to trigger the automatic update. Updating **val** will change the current progress of the bar. The bar can also be manually updated by calling **bar.update()** instead of start.
+
+## Colors
+
+Depending on you terminal, noading can display visuals in various colors using [chalk](https://github.com/chalk/chalk). This can be done by passing in either keywords ('blue') or hex codes ('#0000FF') in a noading config object. Chalk should automatically fallback if the active terminal does not support a certain color range. See [the chalk docs](https://github.com/chalk/chalk) for more details. 
 
 ## Types/Configs
 
@@ -61,18 +64,21 @@ A loading bar.
 
 | Property  | Description |
 | ------------- | ------------- |
-| litChar | The character(s) printed as the "loaded" part of the bar|
-| unlitChar | The characters(s) printed as the "unloaded" part of the bar|
+| litChar | The character(s) printed as the "loaded" part of the bar.|
+| unlitChar | The characters(s) printed as the "unloaded" part of the bar.|
 | len | The length of the bar in characters * length of both the above variables. (e.g. if litChar is 2 chars, 100% at len 10 will be 20 chars long.|
-| litColor | The color of the lit chars. Uses Chalk (ex. chalk.blue)|
-| unlitColor | The color of the unlit chars. (ex. chalk.blue)|
-| textColor | the color of the text at the end of the bar (ex. chalk.blue)|
+| litColor | The color of the lit chars. |
+| unlitColor | The color of the unlit chars.|
+| textColor | the color of the text at the end of the bar.|
 
-## TODO
+### Animation
 
-* Remove chalk requirement outside the module. Chalk can parse keywords, hex codes, and RGB, but it was quicker to use the function.
-* Add animation loader type. Think spinners or dots.
-* Improve module api. I'm not sure what best practices are for this kind of stuff, this is my first public node package.
+Loops through a sequence of characters and draws them at each frame interval.
+
+| Property  | Description |
+| ------------- | ------------- |
+| sequence | An array of characters or strings that the animation will loop through.|
+| color | The color of the characters in the animation.|
 
 ## License
 
