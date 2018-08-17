@@ -12,7 +12,7 @@ A simple loading visualizer.
 Example from **example_bar.js:**
 
 ```js
-const noading = require('./noading.js');
+const noading = require('noading');
 
 var config = {
 	val			: 0,
